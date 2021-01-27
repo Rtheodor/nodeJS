@@ -6,8 +6,14 @@ app.get("/", (req, res) =>{
     res.send("Olá Mundo!");
 });
 
-app.get("/contato", (req, res) =>{
-    res.send("Página de contato!");
+app.get("/contato/:id", (req, res) =>{
+    const {sit} = req.query;
+    const {id} = req.params;
+    return res.json({
+        id:id ,
+        nome: "Rafael",
+        sit:sit
+});
 });
 
 app.listen(8080, ()=>{
