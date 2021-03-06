@@ -1,9 +1,20 @@
 const express = require("express");
 
 const app =  express();
+const contatos = ['rafael', 'camila', 'isis', 'flora'];
+
 
 app.get("/",(req,res) =>{
-    res.send("Pagina de contato 1 - agora sim!");
+     return res.json(contatos);
+});
+
+app.get("/contato/:id", (req, res) => {
+    const { id } = req.params;
+    return res.json({
+        
+        nome: contatos[id]
+        
+    });
 });
 
 app.listen(8080, ()=>{
